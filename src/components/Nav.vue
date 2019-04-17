@@ -1,7 +1,7 @@
 <!--   空白组件模板 author by murongqimiao@live.cn  -->
 <template>
   <div class="Nav-content">
-    <div class="Nav-content-logo" @click="jump('/')">JOAO Cli</div>
+    <div class="Nav-content-logo" @click="jump('/')">myth Cli</div>
     <div class="Nav-lead-button">
       <p @click="jump('/guide')" :class="active === 0 ? 'hl' : ''">指南</p>
       <p @click="jump('/material')" :class="active === 1 ? 'hl' : ''">物料</p>

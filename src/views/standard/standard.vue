@@ -105,7 +105,7 @@
         </div>
       </div>
     </div>
-    <div class="init-bottom">JOAO @2019</div>
+    <div class="init-bottom">myth @2019</div>
   </div>
 </template>
 

@@ -39,7 +39,7 @@
     <div :class="showDetail ? 'imgToast_hl' : 'imgToast'" @click="() => { this.showDetail = false }">
       <img :src="defaultSrc">
     </div>
-    <div class="init-bottom">JOAO @2019</div>
+    <div class="init-bottom">myth @2019</div>
   </div>
 </template>
 

@@ -5,9 +5,9 @@
     <p v-highlight style="text-align: left">
       <pre>
       <code>
-        /** 首先要下载joao-cli **/
+        /** 首先要下载myth-cli **/
         cd到目标目录
-        1.joao init
+        1.myth init
         2.请为项目命名 ->   输入要生成项目的名称
         3.请选择使用的模板w
           empty-backend-template  // 空白后台模板, vue + elementUI

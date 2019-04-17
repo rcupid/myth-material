@@ -4,13 +4,13 @@
         <Nav></Nav>
         <div class="init-contain">
           <h1 class="title">整站快速开发工具</h1>
-          <div class="title-suffix">JOAO Cli, 工程化生成前端项目的现代前端开发范本.</div>
+          <div class="title-suffix">myth Cli, 工程化生成前端项目的现代前端开发范本.</div>
           <div class="home-svg-content" @mousemove="bgMove($event)">
             <img class="svg-content-main" src="@/assets/images/undraw_data_trends_b0wg.svg">
           </div>
         </div>
         <Recommend/>
-        <div class="init-bottom">JOAO @2019</div>
+        <div class="init-bottom">myth @2019</div>
     </div>
     <router-view/>
   </div>
