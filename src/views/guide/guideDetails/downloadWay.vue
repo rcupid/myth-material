@@ -16,23 +16,23 @@
 <script>
 export default {
   props: {},
-  data () {
-    return {}
+  data() {
+    return {};
   },
-  created () {},
+  created() {},
   methods: {}
-}
+};
 </script>
 
 <style lang="scss">
 .downloadWay_content {
-    width: 100%;
-    text-align: left;
-    margin-left: 20px;
-    padding-left: 50px;
-    color: rgba(0,0,0,0.5);
-    p {
-      line-height: 30px;
-    }
+  width: 100%;
+  text-align: left;
+  margin-left: 20px;
+  padding-left: 50px;
+  color: rgba(0, 0, 0, 0.5);
+  p {
+    line-height: 30px;
+  }
 }
 </style>

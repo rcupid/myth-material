@@ -1,11 +1,16 @@
 <!-- 登录页主文件 -->
 <template>
   <div class="__className__">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
+    <el-form
+      ref="loginForm"
+      :model="loginForm"
+      :rules="loginRules"
+      class="login-form"
+      auto-complete="on"
+      label-position="left"
+    >
       <div class="title-container">
-        <h3 class="title">
-          myth~!
-        </h3>
+        <h3 class="title">myth~!</h3>
       </div>
 
       <el-form-item prop="username">
@@ -32,97 +37,102 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">
-        登录
-      </el-button>
+      <el-button
+        :loading="loading"
+        type="primary"
+        style="width:100%;margin-bottom:30px;"
+        @click.native.prevent="handleLogin"
+      >登录</el-button>
 
       <div style="position:relative">
         <div class="tips">
           <span>账号 : admin</span>
-          <span>密码 : 你随意 </span>
+          <span>密码 : 你随意</span>
         </div>
         <div class="tips">
-          <span style="margin-right:18px;">
-            账号 : test
-          </span>
+          <span style="margin-right:18px;">账号 : test</span>
           <span>密码 : 你随意</span>
         </div>
 
-        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">
-          找回密码
-        </el-button>
+        <el-button class="thirdparty-button" type="primary" @click="showDialog=true">找回密码</el-button>
       </div>
     </el-form>
-
   </div>
 </template>
 
 <script>
-import { loginData } from './data.js'
-import User from '@/model/User'
+import { loginData } from "./data.js";
+import User from "@/model/User";
 
 export default {
   components: {},
   props: {},
-  data () {
+  data() {
     const validateUsername = (rule, value, callback) => {
       // 校验逻辑
-      callback()
-    }
+      callback();
+    };
     const validatePassword = (rule, value, callback) => {
       // 校验逻辑
-      callback()
-    }
+      callback();
+    };
     return {
       loginForm: {
-        username: 'admin',
-        password: '1111111'
+        username: "admin",
+        password: "1111111"
       },
       loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
+        username: [
+          { required: true, trigger: "blur", validator: validateUsername }
+        ],
+        password: [
+          { required: true, trigger: "blur", validator: validatePassword }
+        ]
       },
-      passwordType: 'password',
+      passwordType: "password",
       loading: false,
       showDialog: false,
       redirect: undefined
-    }
+    };
   },
-  created () {},
-  mounted () {
-  },
+  created() {},
+  mounted() {},
   methods: {
-    showPwd () {
-      if (this.passwordType === 'password') {
-        this.passwordType = ''
+    showPwd() {
+      if (this.passwordType === "password") {
+        this.passwordType = "";
       } else {
-        this.passwordType = 'password'
+        this.passwordType = "password";
       }
     },
-    handleLogin () {
+    handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
+          this.loading = true;
           setTimeout(() => {
-            let user = new User({ username: this.loginForm.username, password: this.loginForm.password, token: '12312312313' })
-            user.save()
-            this.loading = false
-            this.$router.push({ path: '/' })
-          }, 1500)
+            let user = new User({
+              username: this.loginForm.username,
+              password: this.loginForm.password,
+              token: "12312312313"
+            });
+            user.save();
+            this.loading = false;
+            this.$router.push({ path: "/" });
+          }, 1500);
         } else {
-          console.log('error submit!!')
-          return false
+          console.log("error submit!!");
+          return false;
         }
-      })
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-$bg:#2d3a4b;
-$dark_gray:#889aa4;
-$light_gray:#eee;
+$bg: #2d3a4b;
+$dark_gray: #889aa4;
+$light_gray: #eee;
 
 .__className__ {
   min-height: 100%;
@@ -173,7 +183,7 @@ $light_gray:#eee;
       color: #fff;
       position: absolute;
       top: 3px;
-      font-size:18px;
+      font-size: 18px;
       right: 0px;
       cursor: pointer;
     }

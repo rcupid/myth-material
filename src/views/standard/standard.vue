@@ -1,24 +1,29 @@
 <!-- 主文件 -->
 <template>
   <div class="standard">
-    <Nav :active='2'></Nav>
+    <Nav :active="2"></Nav>
     <div class="standard-maincontent">
       <div class="main-content-list">
         <ul>
-          <li v-for="(item, i) in data.data" :key="`li_${i}`" :class="i === checked ? 'isSel' : ''" @click="choice(i)">
-            {{ item.name }}
-          </li>
+          <li
+            v-for="(item, i) in data.data"
+            :key="`li_${i}`"
+            :class="i === checked ? 'isSel' : ''"
+            @click="choice(i)"
+          >{{ item.name }}</li>
         </ul>
       </div>
       <div class="text-content">
-        <h4 style="text-align: left; padding-top: 10px;margin-bottom: 20px;">{{ data.data[checked].name }}</h4>
+        <h4
+          style="text-align: left; padding-top: 10px;margin-bottom: 20px;"
+        >{{ data.data[checked].name }}</h4>
         <p v-for="(each, index) in data.data[checked].p" :key="`p_${index}`">{{ each }}</p>
-        <img v-if="data.data[checked].imgSrc" :src="data.data[checked].imgSrc" >
+        <img v-if="data.data[checked].imgSrc" :src="data.data[checked].imgSrc">
         <div v-html="data.data[checked].value"></div>
         <!-- vue-router -->
 
         <div v-show="data.data[checked].name === '整体介绍'">
-            <pre v-highlight style="text-align: left">
+          <pre v-highlight style="text-align: left">
               <code>
                       |-api
                         |-http.js       内置axios封装
@@ -37,7 +42,7 @@
             </pre>
         </div>
         <div v-show="data.data[checked].name === 'axios'">
-            <pre v-highlight style="text-align: left">
+          <pre v-highlight style="text-align: left">
               <code>
                       import http from 'api/http'
 
@@ -52,7 +57,7 @@
             </pre>
         </div>
         <div v-show="data.data[checked].name === 'vue router'">
-            <pre v-highlight style="text-align: left">
+          <pre v-highlight style="text-align: left">
               <code>
                       /*
                       * 此文件读取所有一级目录并自动注册index.js
@@ -84,7 +89,7 @@
             </pre>
         </div>
         <div v-show="data.data[checked].name === '登录管控'">
-            <pre v-highlight style="text-align: left">
+          <pre v-highlight style="text-align: left">
               <code>
                       import User from 'model/user'
 
@@ -100,9 +105,7 @@
               </code>
             </pre>
         </div>
-        <div>
-
-        </div>
+        <div></div>
       </div>
     </div>
     <div class="init-bottom">myth @2019</div>
@@ -110,93 +113,92 @@
 </template>
 
 <script>
-import { standardData } from './data.js'
-import Nav from '@/components/Nav'
+import { standardData } from "./data.js";
+import Nav from "@/components/Nav";
 
 export default {
   components: {
     Nav
   },
   props: {},
-  data () {
+  data() {
     return {
       data: standardData,
       checked: 0
-    }
+    };
   },
-  created () {},
-  mounted () {
-  },
+  created() {},
+  mounted() {},
   methods: {
-    choice (n) {
+    choice(n) {
       // 选择某个节点
-      this.checked = n
+      this.checked = n;
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
 .standard {
-    width: 100%;
-    height: 100vh;
-    text-align: center;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  h1 {
+    color: black;
+    font-size: 30px;
+    text-align: left;
+    margin-left: 10%;
+    margin-top: 30px;
+  }
+  .standard-maincontent {
+    width: 80%;
+    margin-left: 10%;
     position: relative;
-    h1 {
-      color: black;
-      font-size: 30px;
+    .main-content-list {
       text-align: left;
-      margin-left: 10%;
-      margin-top: 30px;
+      width: 200px;
+      line-height: 50px;
+      border-right: 1px solid #cccccc;
+      position: absolute;
+      left: 0;
+      top: 0;
+      li {
+        display: block;
+        height: 50px;
+        font-size: 16px;
+        color: #bcbcbc;
+        cursor: pointer;
+        user-select: none;
+      }
+      .isSel {
+        color: #1890ff;
+        background: #e6f7ff;
+        border-right: 2px solid #1890ff;
+      }
     }
-    .standard-maincontent {
-      width: 80%;
-      margin-left: 10%;
-      position: relative;
-      .main-content-list {
+    .text-content {
+      margin-left: 200px;
+      padding-left: 70px;
+      min-height: 60vh;
+      margin-top: 50px;
+      border-left: 1px solid #ccc;
+      img {
+        margin-top: 30px;
+      }
+      h2 {
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 14px;
+        padding-right: 20px;
         text-align: left;
-        width: 200px;
-        line-height: 50px;
-        border-right: 1px solid #cccccc;
-        position: absolute;
-        left: 0;
-        top: 0;
-        li {
-          display: block;
-          height: 50px;
-          font-size: 16px;
-          color: #bcbcbc;
-          cursor: pointer;
-          user-select: none;
-        }
-        .isSel {
-          color: #1890ff;
-          background: #e6f7ff;
-          border-right: 2px solid #1890ff;
-        }
-      }
-      .text-content {
-        margin-left: 200px;
-        padding-left: 70px;
-        min-height: 60vh;
-        margin-top: 50px;
-        border-left: 1px solid #ccc;
-        img {
-          margin-top: 30px;
-        }
-        h2 {
-          margin-bottom: 20px
-        }
-        p {
-          font-size: 14px;
-          padding-right: 20px;
-          text-align: left;
-          letter-spacing: 1px;
-          line-height: 24px;
-          opacity: 0.7;
-          color: rgba(0,0,0,.5);
-        }
+        letter-spacing: 1px;
+        line-height: 24px;
+        opacity: 0.7;
+        color: rgba(0, 0, 0, 0.5);
       }
     }
+  }
 }
 </style>
